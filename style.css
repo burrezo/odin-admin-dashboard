@@ -1,3 +1,334 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) 5fr;
+    grid-template-rows: min-content 1fr;
+}
+
+nav {
+    height: 100vh;
+    
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    grid-auto-flow: column;
+    align-content: start;
+    
+    background-color: rgb(69, 50, 193);
+}
+
 h1 {
-    color: rebeccapurple;
+    text-transform: capitalize;
+    padding-left: 2rem;
+    color: whitesmoke;
+    font-size: clamp(1rem, 1.5rem, 1.5vw);
+}
+
+h1 > span {
+    vertical-align: text-bottom;
+}
+
+nav > ul {
+    list-style: none;
+    padding: 0;
+    
+    display: grid;
+}
+
+nav > ul > li {
+    display: block;
+    margin-left: 2rem;
+    line-height: 3rem;
+    transition: transform .2s;
+}
+
+nav > ul > li:hover {
+    transform: rotate(2deg);
+}
+
+nav > ul > li > a > span {
+    vertical-align: text-top;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: whitesmoke;
+    text-transform: capitalize;
+    font-size: clamp(1rem, 1.5rem, 1.5vw);
+}
+
+header {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    
+    height: min-content;
+    padding: 1vw 2vw 0;
+    box-shadow: 0px 0px 10px 0px rgb(69, 50, 193);
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, min-content);
+
+    border-bottom: 2px solid rgb(69, 50, 193);
+    z-index: 10;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-content: center;
+}
+
+.search > button {
+    border: none;
+    background-color: white;
+    color: none;
+    grid-column: 1 / 2;
+    justify-self: start;
+    transition: transform .2s;
+}
+
+.search > button:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.search > textarea {
+    resize: none;
+    height: 1.5rem;
+    /* width: 30vw; */
+    margin-left: 1rem;
+    border-radius: 10px;
+    background-color: rgb(225, 223, 244);
+    grid-column: 2 / 3;
+    justify-items: stretch;
+}
+
+.search > textarea:focus {
+    outline: 2px solid rgb(69, 50, 193);
+}
+
+.name_inblk {
+    display: inline-block;
+    font-weight: 600;
+    font-size: clamp(1rem, 2rem, 1.2vw);
+    text-transform: capitalize;
+}
+
+.notifications {
+    display: grid;
+    grid-template-columns: min-content min-content max-content; 
+    place-items: center;
+    justify-content: right;
+}
+
+.notifications > span {
+    font-size: 2rem;
+    transition: transform .2s;
+}
+
+.notifications > span:hover {
+    transform: scale(1.5);
+}
+
+.notifications > img {
+    width: 35px;
+    margin: 0 1rem;
+    border-radius: 50%;
+}
+
+.owner {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    /* place-items: center; */
+    justify-content: left;
+    align-content: center;
+}
+
+.owner > img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    grid-row: 1 / 3;
+}
+
+.greet {
+    align-self: end;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+.name_nick {
+    /* font-size: 1.5rem; */
+    font-size: clamp(1rem, 2rem, 1.2vw);
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+    /* grid-column: 2 / 3; */
+}
+
+header > ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3,max-content);
+    justify-content: space-between;
+    column-gap: 1rem;
+    align-content: center;
+}
+
+header > ul > li {
+    font-size: clamp(1rem, 2rem, 1vw);
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    display: inline-block;
+    text-transform: capitalize;
+    color: whitesmoke;
+    background-color: rgb(69, 50, 193);
+    transition: transform .2s;
+}
+
+header > ul > li:hover {
+    transform: rotate(4deg);
+    cursor: pointer;
+}
+
+main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 20vw;
+    background-color: rgb(225, 223, 244);
+    overflow: auto;
+}
+
+.article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    padding: 1vw 2vw 1vw;
+    gap: 1rem;
+    justify-items: center;
+}
+
+.article > h2 {
+    text-transform: capitalize;
+    margin: 0 0 0 2vw;
+    font-size: clamp(1rem, 2rem, 1.5vw);
+    grid-column: 1 / 4;
+    justify-self: start;
+}
+
+.section {
+    
+    border: 2px solid rgb(69, 50, 193);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px rgb(69, 50, 193);
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, min-content);
+    padding: 1rem 1rem 0 1rem;
+    /* justify-items: center; */
+}
+
+.wrap_iframe {
+
+    width: 15vw;
+    max-width: 300px;
+    height: 12vw;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.wrap_links {
+    justify-self: right;
+}
+
+.iframe {
+    width: 1366px;
+    height: 1000px;
+    transform: scale(0.22);
+    transform-origin: 0 0;
+    overflow: hidden;
+}
+
+.aside {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: min-content 1fr;
+    margin: 1rem 1rem 1rem 0;
+    gap: 1rem;
+}
+
+.announcements > h2,
+.trending > h2 {
+    margin: 0 0 1vw 2vw;
+    font-size: clamp(1rem, 2rem, 1.5vw);
+    text-transform: capitalize;
+}
+
+.announcements > section,
+.trending > section {
+    padding: 0.8vw 0.8vw;
+    border: 2px solid rgb(69, 50, 193);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px rgb(69, 50, 193);
+}
+
+.announcements > section > p,
+.trending > section > p {
+    margin: 0;
+    font-size: clamp(0.5rem, 1rem, 1.2vw);
+}
+
+.announcements > section > hr,
+.trending > section hr {
+    margin: 1rem 0 1rem;
+}
+
+.announ_title {
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.trending > section {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3,min-content);
+    gap: 1rem;
+    padding: 1rem;
+}
+.topic > img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.topic p {
+    margin: 0 0 0 1rem;
+}
+
+.topic p:first-child {
+    font-weight: 600;
+}
+
+.topic {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    justify-content: left;
+    align-content: center;
+    
 }
